@@ -1,0 +1,21 @@
+name: Test KICS action PR comment
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  kics:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: run kics Scan
+      uses: checkmarx/kics-github-action@v1.6
+      with:
+        path: serverless.yml
+        token: ${{ secrets.GITHUB_TOKEN }}
+        output_path: myResults/
+        ignore_on_exit: results
+        enable_comments: true
