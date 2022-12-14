@@ -17,5 +17,4 @@ jobs:
         path: serverless.yml
         token: ${{ secrets.GITHUB_TOKEN }}
         output_path: myResults/
-        ignore_on_exit: results
         enable_comments: true
