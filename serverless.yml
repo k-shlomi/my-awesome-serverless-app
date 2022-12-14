@@ -39,12 +39,18 @@ custom:
     dockerizePip: false
 
 functions:
-  hello:
-    handler: handler.hello
+  get-user:
+    handler: handler.get_user
     events:
-      - httpApi:
-          path: /
+      - http:
+          path: /users/{user_id}
           method: get
+  create-user:
+    handler: handler.create_user
+    events:
+      - http:
+          path: /users
+          method: post
 
 resources:
   Resources:
